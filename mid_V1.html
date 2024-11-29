@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6aa76f8fc4773bdfb27bead84e32ab07 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet"></head>
+<body>
+    
+    
+            <div class="folium-map" id="map_6aa76f8fc4773bdfb27bead84e32ab07" ></div>
+        
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script></body>
+<script>
+    
+    
+            var map_6aa76f8fc4773bdfb27bead84e32ab07 = L.map(
+                "map_6aa76f8fc4773bdfb27bead84e32ab07",
+                {
+                    center: [61.6452025, -6.981254],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_74e405c4ae418e7015415f9e12832ec3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_74e405c4ae418e7015415f9e12832ec3.addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+            var marker_e7b038e3bdf6745a497f4ed700347be0 = L.marker(
+                [61.62783333, -6.85733333],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_a790764c553b0c9a13f5a872e4636f09 = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_e7b038e3bdf6745a497f4ed700347be0.setIcon(custom_icon_a790764c553b0c9a13f5a872e4636f09);
+        
+    
+        var popup_d753975ad5abbb34c03cdcb365322492 = L.popup({"maxWidth": 320});
+
+        
+            
+                var html_e8347ee193fcdabedb79fcde76a5437f = $(`<div id="html_e8347ee193fcdabedb79fcde76a5437f" style="width: 100.0%; height: 100.0%;"> <b>22 (61° 37,67N - 6° 51,44V) d.25m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912280/22_1_wxgmcv.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912280/22_1_wxgmcv.jpg" width="150" height="150" style="margin-right: 5px;"> </a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912281/22_2_ug0tt6.jpg" data-lightbox="image-22" data-title="Image 2">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912281/22_2_ug0tt6.jpg" width="150" height="150" style="margin-right: 5px;"> </a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912312/22_3_cddnal.jpg" data-lightbox="image-22" data-title="Image 3">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912312/22_3_cddnal.jpg" width="150" height="150"> </a> <p>Fjallarøðin vestan Snjóstøðugarðin suður undan Múlunum, og Glyvrabergsnæsi norður undan Mjóanesið.</p> </div>`)[0];
+                popup_d753975ad5abbb34c03cdcb365322492.setContent(html_e8347ee193fcdabedb79fcde76a5437f);
+            
+        
+
+        marker_e7b038e3bdf6745a497f4ed700347be0.bindPopup(popup_d753975ad5abbb34c03cdcb365322492)
+        ;
+
+        
+    
+    
+            var marker_cfac0712ecdf19596af349231d556d72 = L.marker(
+                [61.6275, -6.859],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_c0e4c42da9fd73f755d46e1fb1c295bb = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_cfac0712ecdf19596af349231d556d72.setIcon(custom_icon_c0e4c42da9fd73f755d46e1fb1c295bb);
+        
+    
+        var popup_5598925ee3a8764c58d69586a6290373 = L.popup({"maxWidth": 320});
+
+        
+            
+                var html_92a0fbbffbe089a1cfa0bc4210a8fce8 = $(`<div id="html_92a0fbbffbe089a1cfa0bc4210a8fce8" style="width: 100.0%; height: 100.0%;"> <b>23 (61° 37,65N - 6° 51,54V) d.26m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912296/23_1_cxtz21.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912296/23_1_cxtz21.jpg" width="150" height="150" style="margin-right: 5px;"></a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912312/23_2_uhcmw1.jpg" data-lightbox="image-22" data-title="Image 2">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912312/23_2_uhcmw1.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Fjallsrøðin vestan Snóstoðugarðin suður undan Múlunum, og Rituskorð norður undan Mjóanesið.<p> </div>`)[0];
+                popup_5598925ee3a8764c58d69586a6290373.setContent(html_92a0fbbffbe089a1cfa0bc4210a8fce8);
+            
+        
+
+        marker_cfac0712ecdf19596af349231d556d72.bindPopup(popup_5598925ee3a8764c58d69586a6290373)
+        ;
+
+        
+    
+    
+            var marker_b85b43e097d1e06bdb1e3264ec02cb58 = L.marker(
+                [61.62166666, -6.87333333],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_b2e0cf88f054b4d4bb7e6b8cfbc99b9b = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_b85b43e097d1e06bdb1e3264ec02cb58.setIcon(custom_icon_b2e0cf88f054b4d4bb7e6b8cfbc99b9b);
+        
+    
+        var popup_3fa02f0f1a587c7f136ddd7f093478e8 = L.popup({"maxWidth": 320});
+
+        
+            
+                var html_d642d4bdfccb03c1efd7da6471e5fd1a = $(`<div id="html_d642d4bdfccb03c1efd7da6471e5fd1a" style="width: 100.0%; height: 100.0%;"> <b>25 (61° 37,30N - 6° 52,40V) d.24m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912303/25_1_rkqwlb.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912303/25_1_rkqwlb.jpg" width="150" height="150" style="margin-right: 5px;"></a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912308/25_2_e0pwqh.jpg" data-title="Image 2">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912308/25_2_e0pwqh.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Flesin í Sandvík eystur undan Mjóanesið, og Vaðanskarð suður undan Múlunum.<p> </div>`)[0];
+                popup_3fa02f0f1a587c7f136ddd7f093478e8.setContent(html_d642d4bdfccb03c1efd7da6471e5fd1a);
+            
+        
+
+        marker_b85b43e097d1e06bdb1e3264ec02cb58.bindPopup(popup_3fa02f0f1a587c7f136ddd7f093478e8)
+        ;
+
+        
+    
+    
+            var marker_dee437929d3097cc3fa084db73ef95a9 = L.marker(
+                [61.61616666, -6.86666666],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_8cb989755302a5018e33681ab2ad8dde = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_dee437929d3097cc3fa084db73ef95a9.setIcon(custom_icon_8cb989755302a5018e33681ab2ad8dde);
+        
+    
+        var popup_f1702150f5b6b5bb5e995f6ddf059c14 = L.popup({"maxWidth": 320});
+
+        
+            
+                var html_7d03e11c8616e052e66f598f7e30b6d0 = $(`<div id="html_7d03e11c8616e052e66f598f7e30b6d0" style="width: 100.0%; height: 100.0%;"> <b>26 (61° 36,97N - 6° 52,00V) d.25m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912319/26_1_lwcwlq.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912319/26_1_lwcwlq.jpg" width="150" height="150" style="margin-right: 5px;"></a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912315/26_2_sz7mht.jpg" data-lightbox="image-22" data-title="Image 2">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912315/26_2_sz7mht.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Flesin í Sandvík eystur undan Mjóanesið, og Jókin suður undan Giljabrekkuni.(kalvamið) <p> </div>`)[0];
+                popup_f1702150f5b6b5bb5e995f6ddf059c14.setContent(html_7d03e11c8616e052e66f598f7e30b6d0);
+            
+        
+
+        marker_dee437929d3097cc3fa084db73ef95a9.bindPopup(popup_f1702150f5b6b5bb5e995f6ddf059c14)
+        ;
+
+        
+    
+    
+            var marker_d4496128143218a50851480a9df2b3bd = L.marker(
+                [61.60516666, -6.855],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_483a92daec1c31060d6fefc207360f3e = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_d4496128143218a50851480a9df2b3bd.setIcon(custom_icon_483a92daec1c31060d6fefc207360f3e);
+        
+    
+        var popup_435771c8f9dede32b5233101d736963c = L.popup({"maxWidth": 320});
+
+        
+            
+                var html_cf1f4305b4cac51f7bb0b011e880893c = $(`<div id="html_cf1f4305b4cac51f7bb0b011e880893c" style="width: 100.0%; height: 100.0%;"> <b>27 (61° 36,31N - 6° 51,30V) d.26m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912318/27_1_vdyoat.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912318/27_1_vdyoat.jpg" width="150" height="150" style="margin-right: 5px;"></a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912315/27_2_qvunpx.jpg" data-lightbox="image-22" data-title="Image 2">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912315/27_2_qvunpx.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Flesin í Sandvík undan Mjóanesið, og Vatnsdalsfossur undan Snæbjarnaryggi. (sildafiskur um summari) <p> </div>`)[0];
+                popup_435771c8f9dede32b5233101d736963c.setContent(html_cf1f4305b4cac51f7bb0b011e880893c);
+            
+        
+
+        marker_d4496128143218a50851480a9df2b3bd.bindPopup(popup_435771c8f9dede32b5233101d736963c)
+        ;
+
+        
+    
+    
+            var marker_2b366b933ac12df6dae81516ce0a0b27 = L.marker(
+                [61.60766666, -6.844],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_aefaeed0ddc2744c57048ff600dfe9a2 = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_2b366b933ac12df6dae81516ce0a0b27.setIcon(custom_icon_aefaeed0ddc2744c57048ff600dfe9a2);
+        
+    
+        var popup_914d31b071f6604176f6a5337d816fbc = L.popup({"maxWidth": 320});
+
+        
+            
+                var html_24c5e6fe8a4897caac78bdbf02890516 = $(`<div id="html_24c5e6fe8a4897caac78bdbf02890516" style="width: 100.0%; height: 100.0%;"> <b>28 (61° 36,46N - 6° 50,64V) d.21m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912319/28_1_b2luj2.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912319/28_1_b2luj2.jpg" width="150" height="150" style="margin-right: 5px;"></a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912269/28_2_e9ljwp.jpg" data-lightbox="image-22" data-title="Image 2">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912269/28_2_e9ljwp.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Vatnsdalsfossur undan Snæbjarnaryggi, og skortur sunnast í Syðriskorð í ryggin á uruni undir Nevinum.<p> </div>`)[0];
+                popup_914d31b071f6604176f6a5337d816fbc.setContent(html_24c5e6fe8a4897caac78bdbf02890516);
+            
+        
+
+        marker_2b366b933ac12df6dae81516ce0a0b27.bindPopup(popup_914d31b071f6604176f6a5337d816fbc)
+        ;
+
+        
+    
+    
+            var marker_da928959f610818bbfda10fb38f46ca1 = L.marker(
+                [61.61366666, -6.8765],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_89ce43ff61615e65ebcfc21395aa6427 = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_da928959f610818bbfda10fb38f46ca1.setIcon(custom_icon_89ce43ff61615e65ebcfc21395aa6427);
+        
+    
+        var popup_550d30aecca34e042ed131e6d4b65e66 = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_34c7a586410cd2d61684343cc7c99542 = $(`<div id="html_34c7a586410cd2d61684343cc7c99542" style="width: 100.0%; height: 100.0%;"> <b>29 (61° 36,82N - 6° 52,59V) d.19m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912269/29_x_d2nmsa.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912269/29_x_d2nmsa.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Borgin og Líratúgva yvir eitt. <br>(Tað sjálvsama við hesum miðið er at tað hevur bert eitt ýti) <p> </div>`)[0];
+                popup_550d30aecca34e042ed131e6d4b65e66.setContent(html_34c7a586410cd2d61684343cc7c99542);
+            
+        
+
+        marker_da928959f610818bbfda10fb38f46ca1.bindPopup(popup_550d30aecca34e042ed131e6d4b65e66)
+        ;
+
+        
+    
+    
+            var marker_2da3655f746f67db614f9f921403dcb6 = L.marker(
+                [61.61366666, -6.8765],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_f17a8444d4db7218d95486680c03df79 = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_2da3655f746f67db614f9f921403dcb6.setIcon(custom_icon_f17a8444d4db7218d95486680c03df79);
+        
+    
+        var popup_53af2ff3cfb3c369f7f434917cb12cda = L.popup({"maxWidth": 200});
+
+        
+            
+                var html_651894cce3b60d26eb072986485b2d3e = $(`<div id="html_651894cce3b60d26eb072986485b2d3e" style="width: 100.0%; height: 100.0%;"> <b>29 (61° 36,82N - 6° 52,59V) d.19m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912269/29_x_d2nmsa.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912269/29_x_d2nmsa.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Borgin og Líratúgva yvir eitt. <br>(Tað sjálvsama við hesum miðið er at tað hevur bert eitt ýti) <p> </div>`)[0];
+                popup_53af2ff3cfb3c369f7f434917cb12cda.setContent(html_651894cce3b60d26eb072986485b2d3e);
+            
+        
+
+        marker_2da3655f746f67db614f9f921403dcb6.bindPopup(popup_53af2ff3cfb3c369f7f434917cb12cda)
+        ;
+
+        
+    
+    
+            var marker_a03a3c79e755650a9a9a8b2615c2420a = L.marker(
+                [61.617, -6.88066666],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_6ddb92eb5c2e3efc18b5ab1679210e48 = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_a03a3c79e755650a9a9a8b2615c2420a.setIcon(custom_icon_6ddb92eb5c2e3efc18b5ab1679210e48);
+        
+    
+        var popup_d6676e0a2973ddbc98a2ed3477e79bbd = L.popup({"maxWidth": 320});
+
+        
+            
+                var html_1db9053c9f827b9722ba13d260813bc8 = $(`<div id="html_1db9053c9f827b9722ba13d260813bc8" style="width: 100.0%; height: 100.0%;"> <b>36 (61° 37,02N - 6° 52,84V)</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912285/36_1_mefuqp.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912285/36_1_mefuqp.jpg" width="150" height="150" style="margin-right: 5px;"></a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912293/36_2_mcfem0.jpg" data-lightbox="image-22" data-title="Image 2">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912293/36_2_mcfem0.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Ribbingarmúlið undan Nevinum, og Knútur á Skúoy undan Mjóanesið.<p> </div>`)[0];
+                popup_d6676e0a2973ddbc98a2ed3477e79bbd.setContent(html_1db9053c9f827b9722ba13d260813bc8);
+            
+        
+
+        marker_a03a3c79e755650a9a9a8b2615c2420a.bindPopup(popup_d6676e0a2973ddbc98a2ed3477e79bbd)
+        ;
+
+        
+    
+    
+            var marker_fb67f21251dde8ae982f7d1c2e549953 = L.marker(
+                [61.6, -6.91666666],
+                {}
+            ).addTo(map_6aa76f8fc4773bdfb27bead84e32ab07);
+        
+    
+        var custom_icon_9bb52397136c620a7414e4872211d2be = L.icon({"iconSize": [30, 30], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEO0lEQVR4nO2aa4hVVRTHf4WTWjT0mBEp6KWWqUUFVhj1JaGslN44ijHUFKU9CMQP1Yf6kEQQaDlgJZYOiToFgZrYS1CpIK0sR81e9kH6Uo5aEpP2YME+sFjcs88+13v3Pfd2fnDgzpn/3msd7l5rr73OhZKSkpKSkpI6cxJwFTAf6Ad2AgeBIXcddPf6nUa0LcFZwNPAd8C/Oa99wFPAmTQhI4HngN+reHB7HQGeBUbQJEwBfqjwILLMVwL3A5OBTqDNXZ3unvyvz2nt+O+Bayg4jwPHjONfAV3A8BzzyLc9C/jazPUXMJeCstA4+5v7RiUBVsvJwIMVVoSEV6F4xjg4AIyp4fznAZ8ZGwsoCHcbxzYA7XVKrOuUnX+A6TSYC4DDyqlP65ytJY98ZMLsXBrIeuXMz8DowHGj3bf3kLvk86jAsVIX7Fd219Igpion/gauDRgjD/qJ09ttTu5tBW4OmOcGFwLJ2OtoAJuVA69laM8wqyXregc4PWPOPqV/j8hcavbm8zOW7ECF/fxj4FVgqfs8ZDRfZiTTccBxlRAvJCLPK0ff9uikBvjQZO5XXOVn6QAWmaUtq8bHBqWVM0c0tivDt3t0s8zDzwmYe6bJEXd6tLOVbguRaFcOHstYprqUfTGHjRfUuB0e3Si1YoZylttVc7Vy7puMGE10R3MWR5IA/1Djpd5I40elm0AEugLj/64csVwJvWvc4dFtUrrbiMDDyqBk8DTmKV1vFXZ61XjfCfAtpZOcUHceUwYXe3RzlO7NKuzoff4+j2650nUTOQT6PLrrlW5vFXZ0U0UqvzTeVboZROBGZXCjR9dmzvEyLpRb1bhB4BSPdpvSSjeq7oxVBg9kaBeZJufZAfPL1vaTGrcko2EyqLTRToa/KKO+xkeHWQU73faYxnhTNg9mnBIvV1o5IUajXxl+NEN7k+kTSsGyDLgFuMQ9tJwS33BnhER33Gl8LFD6VUSk23yrIV0jXdhkXUddSUzGOWOfGiPJORqnmtjzZemEicD7AQ//AXBZwHzT1JhfY5XBmsXKge0uIYUw2XWQpZ+wx12b3T0ps0MYBuxS9l+iAZzj3tokTjwS0fYTyu6hHO20mjNfOfIncGUEmxNdjkjsPkkDaXNJMHHm24BW1olwGrDbHJXFh4ZysQmFNXW0tULZOeJsF4Iuk8nldVatecDYiLrthbC8jvnAxv3LFJARrpOra//2GsX9gHnbXNjfCowz+WB1K8d9GjNrmA8KH/dpvG7ywRXkZ1IzxH0aEqNfnEA+sPt9oePelw8OV5kPmi7u07jXxHAP2fQ0a9ynsTRHPmjquE9juKvZs/JBS8S9r5F6KCMftEzcp3GPiW3Z49PiXl6rtSS9FfJBS8Z9aD5IWmLJ3583orcXmzEmH+jW1kX8T5hhfgrT0nGfxmx3zN0V8A6gpKSkpKSkhJrzH5y2COItjn1DAAAAAElFTkSuQmCC"});
+        marker_fb67f21251dde8ae982f7d1c2e549953.setIcon(custom_icon_9bb52397136c620a7414e4872211d2be);
+        
+    
+        var popup_05b325e20dec70acdf8484096ac7abf2 = L.popup({"maxWidth": 320});
+
+        
+            
+                var html_cecde8bc8b417fa43131a6da3cbefa73 = $(`<div id="html_cecde8bc8b417fa43131a6da3cbefa73" style="width: 100.0%; height: 100.0%;"> <b>37 (61° 36N - 6° 55V) d.10m</b><br> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912287/37_1_ywof08.jpg" data-lightbox="image-22" data-title="Image 1">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912287/37_1_ywof08.jpg" width="150" height="150" style="margin-right: 5px;"></a> <a href="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912305/37_2_uxzbrn.jpg" data-lightbox="image-22" data-title="Image 2">     <img src="https://res.cloudinary.com/df8dbmiqw/image/upload/v1732912305/37_2_uxzbrn.jpg" width="150" height="150" style="margin-right: 5px;"></a> <p>Lýsjakrógv undan rygginum undir Lýsjamúla, og Kletturin í erva á stóri Dímun suður undan Mjóanesið.<p> </div>`)[0];
+                popup_05b325e20dec70acdf8484096ac7abf2.setContent(html_cecde8bc8b417fa43131a6da3cbefa73);
+            
+        
+
+        marker_fb67f21251dde8ae982f7d1c2e549953.bindPopup(popup_05b325e20dec70acdf8484096ac7abf2)
+        ;
+
+        
+    
+</script>
+</html>
